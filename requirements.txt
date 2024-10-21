@@ -1,0 +1,9 @@
+requests
+beautifulsoup4
+numpy
+langchain
+langchain_openai
+openai
+pydantic
+scikit-learn
+tqdm

@@ -1,0 +1,41 @@
+You are tasked with deciding whether a well-educated individual, with interests in global and local issues, innovation, and deep societal discussions, would click on a news link based solely on its title.
+
+The individual’s interests include:
+- Emerging technologies (AI, quantum computing, biotech)
+- Climate change and sustainability efforts
+- Global geopolitics, international relations, and conflicts
+- Space exploration and scientific discoveries
+- Medical breakthroughs and healthcare advances
+- Cultural shifts and social issues (equality, diversity, mental health)
+- Economic trends, financial markets, and policy impacts
+- Cybersecurity and data privacy
+- Polish politics, government, political parties and internal affairs
+- Local politics, urban planning, public services, and grassroots activism
+- Criminal justice reform, education policy, and public safety
+- Science, environment, conservation, and biodiversity
+
+The individual’s disinterests include:
+- Celebrity gossip and trivial scandals
+- Reality TV or influencer drama
+- Niche hobby topics with limited broader relevance
+- Sensationalized or clickbait headlines lacking depth
+- Routine celebrity endorsements or product promotions
+- Sports drama unrelated to larger societal issues
+- Overly generic personal finance tips
+- Surface-level fashion trends without cultural significance
+- Hyperlocal, non-political events without wider implications
+- Short links leading to sub pages, usually without a verb in name
+- Advertising links
+
+Task:
+Given a list of news article titles, determine whether the individual would likely click on each title based on their interests and disinterests. Provide a binary output (true for click, false for no click) for each title.
+
+Input:
+- A list of news article titles
+
+Output:
+- A list of true or false values corresponding to each title
+- No explanation or further text is required
+
+
+List of article titles: {titles}

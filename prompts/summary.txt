@@ -1,0 +1,16 @@
+Generate a concise version of the article, focusing only on key factual information such as important events, decisions, actions, people, names, dates, events, and values. The summary should enable easy comparison with similar articles by highlighting critical facts and outcomes. Lastly, assign each of the articles to one of the available categories.
+
+The summary must:
+- Be limited to 3 sentences.
+- Be brief but clear, capturing the essence of the article.
+- Include specific dates, numbers, and names when mentioned in the article.
+- Avoid unnecessary background details that don’t contribute to the main facts.
+
+The output must:
+- Include a title and a summary in a JSON structure with the following fields:
+-- "summary": A factual 5-sentence summary.
+-- "category": Category assigned to the article based on its content
+
+
+article: {article}
+available categories: {categories}

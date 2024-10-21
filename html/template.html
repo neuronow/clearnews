@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClearNews</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Roboto:wght@400;500&display=swap"
+          rel="stylesheet">
+    <style>
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #000000;
+            line-height: 1.6;
+        }
+
+        /* Header Styles - Black and White */
+        .header {
+            background-color: #f0f0f0;
+            padding: 20px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            color: black;
+            border-bottom: 2px solid black;
+        }
+
+        .header-logo {
+            width: 50px;
+            height: 50px;
+            margin-right: 20px;
+            border: 1px solid black;
+        }
+
+        .header-title {
+            font-family: 'Merriweather', serif;
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 0;
+            letter-spacing: 1px;
+            color: black;
+        }
+
+        .header-links {
+            margin-left: auto;
+            display: flex;
+            gap: 20px;
+        }
+
+        .fairness-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .fairness-label {
+            font-size: 0.9rem;
+            margin-right: 10px;
+        }
+
+        .fairness-bar {
+            width: 100px;
+            height: 10px;
+            background-color: #ddd;
+            position: relative;
+            border-radius: 5px;
+            overflow: hidden;
+            border: 1px solid black;
+        }
+
+        .fairness-value {
+            height: 100%;
+            background-color: black;
+            position: absolute;
+            top: 0;
+        }
+
+        .fairness-percentage {
+            margin-left: 10px;
+            font-size: 0.9rem;
+            color: #000;
+        }
+
+        .reference-count {
+            font-size: 0.9rem;
+            color: #333;
+            font-style: italic; /* Style similar to the article summary */
+        }
+
+        .header-link {
+            font-family: 'Roboto', sans-serif;
+            color: black;
+            font-size: 1rem;
+            text-decoration: none;
+            border-bottom: 1px solid black;
+        }
+
+        .header-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Article Row Styles - Mimicking Newspaper Columns */
+        .content-wrapper {
+            max-width: 900px;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+
+        .article-row {
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-bottom: 1px solid #000;
+            background-color: #f7f7f7;
+        }
+
+        .thumbnail img {
+            width: 150px;
+            height: 150px;
+            margin-right: 20px;
+            border: 1px solid black;
+            filter: grayscale(100%)
+        }
+
+        .article-content {
+            flex: 1;
+        }
+
+        /* Article Title */
+        .article-title {
+            font-family: 'Merriweather', serif;
+            font-size: 1.2rem;
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+            color: #000;
+        }
+
+        /* Short Description */
+        .short-description {
+            font-size: 1rem;
+            color: #333;
+            margin-bottom: 15px;
+            font-style: italic
+        }
+
+        /* Bias Indicator - Black and White */
+        .bias-indicator {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .bias-label {
+            font-size: 0.9rem;
+            margin-right: 10px;
+        }
+
+        .bias-bar {
+            width: 100px;
+            height: 10px;
+            background-color: #ddd;
+            position: relative;
+            border-radius: 5px;
+            overflow: hidden;
+            border: 1px solid black;
+        }
+
+        .bias-value {
+            height: 100%;
+            background-color: black;
+            position: absolute;
+            top: 0;
+        }
+
+        .bias-percentage {
+            margin-left: 10px;
+            font-size: 0.9rem;
+            color: #000;
+        }
+
+        /* Read More/Read Less Links */
+        .read-more-link {
+            font-size: 1rem;
+            color: black;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid black;
+        }
+
+        .read-more-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Full Article Section */
+        .full-article {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .full-article-section p {
+            font-size: 1rem;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        /* Opinions Section */
+        .opinions-section h3,
+        .sources h3 {
+            font-size: 1.1rem;
+            font-weight: normal;
+            margin-bottom: 10px;
+            color: black;
+            text-transform: uppercase;
+        }
+
+        .opinions-section p {
+            font-size: 1rem;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        /* Sources Section */
+        .sources {
+            margin-top: 20px;
+        }
+
+        /* Sources Section */
+        .sources a {
+            color: black;
+            text-decoration: none;
+            font-weight: normal; /* Remove bold */
+            font-size: 0.8rem;
+        }
+
+        .sources a:hover {
+            text-decoration: underline
+        }
+
+        /* Footer Section - Black and White */
+        footer {
+            background-color: #f0f0f0;
+            color: black;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            border-top: 2px solid black;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        footer a {
+            color: black;
+            text-decoration: none;
+            margin: 0 10px;
+            border-bottom: 1px solid black;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .article-row {
+                flex-direction: row;
+            }
+
+            .thumbnail {
+                flex: 0 0 150px;
+            }
+
+            .article-content {
+                flex: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-links {
+                margin-top: 10px;
+            }
+
+            .header-title {
+                font-size: 2rem;
+            }
+
+            .header-logo {
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Header with Title, Logo, and Links -->
+<header class="header">
+    <h1 class="header-title">ClearNews</h1>
+    <div class="header-links">
+        <a href="/about" class="header-link">About</a>
+    </div>
+</header>
+
+<div class="content-wrapper">
+    {articles_section}
+</div>
+
+<!-- Footer Section -->
+<footer>
+    <p>&copy; 2024 ClearNews | All rights reserved.</p>
+    <p>
+        <a href="/privacy-policy">Privacy Policy</a> |
+        <a href="/terms-of-service">Terms of Service</a> |
+        <a href="/contact">Contact Us</a>
+    </p>
+</footer>
+
+<script>
+    function toggleArticle(articleId, linkId) {
+        var article = document.getElementById(articleId);
+        var link = document.getElementById(linkId);
+
+        // If the clicked article is already open, close it
+        if (article.style.display === "block") {
+            article.style.display = "none";
+            link.innerHTML = "Read More";
+        } else {
+            // Close any other open articles and reset their "Read More" links
+            var openArticles = document.querySelectorAll('.full-article');
+            openArticles.forEach(function (el) {
+                el.style.display = 'none';
+            });
+
+            var readMoreLinks = document.querySelectorAll('.read-more-link');
+            readMoreLinks.forEach(function (el) {
+                el.innerHTML = 'Read More'; // Reset all other links to "Read More"
+            });
+
+            // Open the clicked article
+            article.style.display = "block";
+            link.innerHTML = "Read Less";
+        }
+    }
+</script>
+</body>
+
+</html>
